@@ -1,4 +1,15 @@
 
+function validateNumber(){
+    var checker = document.getElementById("userInput").value;
+    console.log(checker.length + " is the length of the number inputted");
+    if (checker.length != 10){
+      alert("Please enter an 10 digit phone number with no dashes and parentheses.");
+    } else {
+      numberGet();
+    }
+  }
+
+
 function numberGet() {
   var input = document.getElementById("userInput").value;
 	alert(input + " will now recieve text alerts!");
