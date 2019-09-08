@@ -1,4 +1,7 @@
 p {
-  font-size: 400px;
-  font-family: cursive;
+  font-size: 20px;
+}
+.container {
+  display: flex;
+  justify-content: center;
 }
