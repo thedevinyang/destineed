@@ -14,12 +14,12 @@ function saveNumber(number) {
   $.post('/savePhoneNumber', number, function(result) {
     // After POST, navigate to COMPLETE SCREEN
     console.log("in function.js saveNumber, about to navigate to home");
-    navigateToCongrats();
+    navigateToComplete();
   });
 }
 
-function navigateToCongrats(){
-  console.log("About to nav to /");
-  window.location.href = '/congrats';
+function navigateToComplete(){
+  console.log("About to nav to /complete");
+  window.location.href = '/complete';
 
 }
