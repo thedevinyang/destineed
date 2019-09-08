@@ -34,7 +34,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', index.view);
+app.get('/', index.viewHome);
+app.post('/savePhoneNumber', index.savePhoneNumber);
 
 
 // Example route
