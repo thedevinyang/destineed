@@ -5,7 +5,12 @@ function validateNumber(){
     if (checker.length != 10){
       alert("Please enter an 10 digit phone number with no dashes and parentheses.");
     } else {
-      numberGet();
+      if(isNaN(checker)){
+        console.log(checker);
+        alert("Please enter an 10 digit phone number with no dashes and parentheses.");
+      } else {
+        numberGet();
+      }
     }
   }
 
