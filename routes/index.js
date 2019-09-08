@@ -10,6 +10,7 @@ exports.viewComplete = function(req, res){
   res.render('congrats');
 }
 
+
 exports.savePhoneNumber = function(req, res){
   // Obtain phone number from req body, which is always a JSON
   // Use Object.keys to extract the number
