@@ -1,7 +1,16 @@
 p {
   font-size: 20px;
+  text-align: center;
 }
 .container {
   display: flex;
   justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  height: 100%;
+  width: 100%;
 }
