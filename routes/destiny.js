@@ -40,7 +40,7 @@ exports.getAccessToken = function(req, res){
     console.log("The response from that request is ", resp);
     // Save token globally
     // TODO
-    res.redirect("index");
+    res.redirect("/");
 
   });
 
