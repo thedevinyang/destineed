@@ -10,6 +10,7 @@ var handlebars = require('express3-handlebars')
 var cron = require('node-cron');
 
 var index = require('./routes/index');
+var destiny = require('./routes/destiny');
 
 var app = express();
 
@@ -37,7 +38,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.viewHome);
 app.post('/savePhoneNumber', index.savePhoneNumber);
 app.get('/complete', index.viewComplete);
-
+app.get('/destinyAccessToken', destiny.getAccessToken);
 
 // Example route
 // app.get('/users', user.list);
