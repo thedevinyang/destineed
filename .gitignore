@@ -11,8 +11,5 @@ pids
 logs
 results
 
-numbers.txt
-
 npm-debug.log
 #node_modules
-numbers.txt
