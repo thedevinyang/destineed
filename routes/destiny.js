@@ -27,7 +27,7 @@ exports.getAccessToken = function(req, res){
     header: {
       "Content-Type": "application/x-www-form-urlencoded",
       "X-API-Key": "f966c6ece9324106b01d501a6d932ff6",
-      "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString('base64'));
+      "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString('base64'))
     },
     data: {
       "grant_type": "authorization_code",
