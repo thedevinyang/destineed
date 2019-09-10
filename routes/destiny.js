@@ -15,11 +15,13 @@ const request = require('request')
 
 exports.getAccessToken = function(req, res){
 
-  console.log(res)
+  // console.log(res)
   const client_id = "29743";
   const client_secret = "1KQkDDBAX4Fg7R4MonEuikYz9LQWDTLNuKuDKXXSQfs"; //TODO
   const code = res.get("code"); // TODO
-  console.log("The code is", code);
+  console.log("The req code is", req.query.code);
+  console.log("The res code is", res.query.code);
+
   request.post({
     url: "https://www.bungie.net/platform/app/oauth/token/?grant_type=authorization_code&client_id=29743&code="+code,
     header: {
