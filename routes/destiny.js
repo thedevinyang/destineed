@@ -1,5 +1,4 @@
-const request = require('request');
-const jp = require('jsonpath');
+const request = require('request')
 
 var access_token;
 
@@ -32,10 +31,10 @@ request.post({
 }
 
 function getVendors(req, res){
+  const charID = 2305843009299856596;
+  const memID = 4611686018470735882;
   const memType = 4;
-  const memID = "4611686018470735882";
-  const charID = "2305843009299856596";
-  const vendorHash = "1265988377";
+  const vendorHash = 1265988377;
 
 request.get({
   url: 'https://www.bungie.net/Platform/Destiny2/' + memType + '/Profile/' + memID + '/Character/' + charID + '/Vendors/' + vendorHash + '?components=402',
@@ -47,10 +46,6 @@ request.get({
   },
   }, function(err, resp, body){
     console.log('Printing vendor body.' + body);
-    var vendorList = JSON.parse(body);
-    var itemHashes = jp.query(vendorList, '$.Response.sales.data[?(@)].itemHash');
-    console.log('These are the item hashes' + itemHashes);
-    console.log('Checking 3rd element' + itemHashes[3]);
-    console.log('Checking if mark is for sale ' + itemHashes.includes(574137193));
+
   });
 }
