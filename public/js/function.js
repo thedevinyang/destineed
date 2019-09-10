@@ -1,4 +1,7 @@
 
+const authURL = "https://www.bungie.net/en/oauth/authorize?client_id=29743&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4&redirect_uri=" + "https://localhost:3000";
+
+
 function validateNumber(){
     var checker = document.getElementById("userInput").value;
     console.log(checker.length + " is the length of the number inputted");
@@ -38,4 +41,8 @@ function navigateToComplete(){
   console.log("About to nav to /complete");
   window.location.href = '/complete';
 
+}
+
+function navigateToAuth(){
+  window.location.href = authURL;
 }

@@ -10,6 +10,9 @@ exports.viewComplete = function(req, res){
   res.render('congrats');
 }
 
+exports.viewConsent = function(req, res){
+  res.render('consent');
+}
 
 exports.savePhoneNumber = function(req, res){
   // Obtain phone number from req body, which is always a JSON

@@ -37,6 +37,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.viewHome);
 app.post('/savePhoneNumber', index.savePhoneNumber);
 app.get('/complete', index.viewComplete);
+app.get('/consent', index.viewConsent);
 
 
 // Example route
