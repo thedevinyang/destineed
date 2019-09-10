@@ -1,5 +1,5 @@
 
-const authURL = "https://www.bungie.net/en/oauth/authorize?client_id=29743&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4&redirect_uri=" + "https://localhost:3000";
+const authURL = "https://www.bungie.net/en/oauth/authorize?client_id=29743&response_type=code&state=6i0mkLx79Hp91nzWVeHrzHG4&redirect_uri=" + "https://destineed.herokuapp.com/destinyAccessToken";
 
 
 function validateNumber(){
