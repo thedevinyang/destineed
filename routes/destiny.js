@@ -49,7 +49,7 @@ request.get({
     console.log('Printing vendor body.' + body);
     var vendorList = JSON.parse(body);
     var itemHashes = jp.query(vendorList, '$.Response.sales.data[?(@)].itemHash');
-    consoe.log(itemHashes);
+    console.log('These are the item hashes' + itemHashes);
     console.log('Checking if mark is for sale ' + itemHashes.includes('574137193'));
   });
 }
