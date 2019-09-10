@@ -35,11 +35,12 @@ exports.getAccessToken = function(req, res){
     }
   }, function(err, res, body){
     // On Success
-    console.log("The result from that request is", body);
-
+    console.log("The result from that request is ", body);
+    console.log("The error from that request is ", err);
+    console.log("The response from that request is ", res);
     // Save token globally
-    // TODO 
-    res.redirect("/");
+    // TODO
+    return res.redirect("index");
 
   });
 
