@@ -14,7 +14,7 @@ const request = require('request')
 
 
 exports.getAccessToken = function(req, res){
-
+  var accessToken;
   // console.log(res)
   const client_id = "29743";
   const client_secret = "1KQkDDBAX4Fg7R4MonEuikYz9LQWDTLNuKuDKXXSQfs"; //TODO
@@ -35,7 +35,8 @@ exports.getAccessToken = function(req, res){
     }
   }, function(err, res, body){
     console.log("The result from that request is", body);
+
   });
 
-  window.location.href = "/";
+  res.redirect("\");
 }
