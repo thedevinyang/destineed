@@ -22,8 +22,6 @@ request.post({
         'code': code
     }
   }, function(err, resp, body) {
-    console.log('Body is ' + body)  ;
-    console.log("getting the values after parsing", JSON.parse(body)['access_token']);
     access_token =  JSON.parse(body)['access_token'];
     console.log('Access token is : ' + access_token);
     //console.log(body + " \nstatus code: " + resp.statusCode + "\ncookie: " + resp.headers['set-cookie']);
