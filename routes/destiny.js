@@ -11,40 +11,63 @@ const request = require('request')
 // });
 // Access Token -- POST
 
-
-
-exports.getAccessToken = function(req, res){
-  var accessToken;
-  // console.log(res)
+exports.getAccessToken = function(req, res) {
   const client_id = "29743";
   const client_secret = "1KQkDDBAX4Fg7R4MonEuikYz9LQWDTLNuKuDKXXSQfs"; //TODO
-  const code = req.query.code; // TODO
+  const code = req.query.code;
   console.log("The req code is", req.query.code);
 
-  request.post({
-    url: "https://www.bungie.net/platform/app/oauth/token/?grant_type=authorization_code&client_id=29743&code="+code,
-    header: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "X-API-Key": "f966c6ece9324106b01d501a6d932ff6",
-      "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString('base64'))
+request.post({
+    url: 'https://www.bungie.net/Platform/App/OAuth/Token/?grant_type=authorization_code&client_id=' + client_id + '&code=' + code,
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-API-Key': "f966c6ece9324106b01d501a6d932ff6",
+        'Authorization': 'Basic ' + new Buffer(client_id + ":" + client_secret).toString('base64'))
     },
-    data: {
-      "grant_type": "authorization_code",
-      "client_id": client_id,
-      "code": code
+    form: {
+        'grant_type': 'authorization_code',
+        'client_id': client_id,
+        'code': code
     }
-  }, function(error, resp, body){
-    // On Success
-    console.log("The response from that request is ", resp);
-    console.log("The result from that request is ", body);
-
-    if (error) {
-     console.error("The error from that request is ", error)
-    }
-    // Save token globally
-    // TODO
+  }, function(err, res, body) {
+    console.log(body + " \nstatus code: " + res.statusCode + "\ncookie: " + res.headers['set-cookie']);
     res.redirect("/");
+});
 
-  });
+}
+//
+// exports.getAccessToken = function(req, res){
+//   var accessToken;
+//   // console.log(res)
+//   const client_id = "29743";
+//   const client_secret = "1KQkDDBAX4Fg7R4MonEuikYz9LQWDTLNuKuDKXXSQfs"; //TODO
+//   const code = req.query.code;
+//   console.log("The req code is", req.query.code);
+//
+//   request.post({
+//     url: "https://www.bungie.net/platform/app/oauth/token/?grant_type=authorization_code&client_id=29743&code="+code,
+//     header: {
+//       "Content-Type": "application/x-www-form-urlencoded",
+//       "X-API-Key": "f966c6ece9324106b01d501a6d932ff6",
+//       "Authorization": "Basic " + (new Buffer(client_id + ":" + client_secret).toString('base64'))
+//     },
+//     data: {
+//       "grant_type": "authorization_code",
+//       "client_id": client_id,
+//       "code": code
+//     }
+//   }, function(error, resp, body){
+//     // On Success
+//     console.log("The response from that request is ", resp);
+//     console.log("The result from that request is ", body);
+//
+//     if (error) {
+//      console.error("The error from that request is ", error)
+//     }
+//     // Save token globally
+//     // TODO
+//     res.redirect("/");
+//
+//   });
 
 }
