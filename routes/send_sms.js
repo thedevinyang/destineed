@@ -16,7 +16,7 @@ fs.readFile('numbers.txt', 'utf8', function(err, data) {
       .create({
          body: 'Hi! You are now recieving text alerts from Destineed!',
          from: '+18313464554',
-         to: phoneNumber
+         to: '+11231231234'
        })
       .then(message => console.log(message.sid));
 });
