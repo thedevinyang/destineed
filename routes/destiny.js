@@ -34,6 +34,8 @@ exports.getAccessToken = function(req, res){
       "code": code
     }
   }, function(err, res, body){
-    console.log(body);
+    console.log("The result from that request is", body);
   });
+
+  window.location.href = "/";
 }
