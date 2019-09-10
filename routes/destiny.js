@@ -23,7 +23,7 @@ request.post({
     }
   }, function(err, resp, body) {
     console.log(body);
-    access_token = body.access_token;
+    access_token = body['access_token'];
     console.log(access_token);
     //console.log(body + " \nstatus code: " + resp.statusCode + "\ncookie: " + resp.headers['set-cookie']);
     getVendors();
