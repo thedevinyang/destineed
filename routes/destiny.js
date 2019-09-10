@@ -39,7 +39,7 @@ exports.getAccessToken = function(req, res){
     console.log("The result from that request is ", body);
 
     if (error) {
-     console.error(error)
+     console.error("The error from that request is ", error)
     }
     // Save token globally
     // TODO
