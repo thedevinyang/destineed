@@ -32,13 +32,12 @@ request.post({
 
 function getVendors(req, res){
   const memType = 4;
-  const memID = 4611686018470735882;
-  const charID = 2305843009299856596;
-  const vendorHash = 1265988377;
+  const memID = "4611686018470735882";
+  const charID = "2305843009299856596";
+  const vendorHash = "1265988377";
 
-// 'https://www.bungie.net/Platform/Destiny2/' + memType + '/Profile/' + memID + '/Character/' + charID + '/Vendors/' + vendorHash + '?components=402',
 request.get({
-  url: 'https://www.bungie.net/Platform/Destiny2/4/Profile/4611686018470735882/Character/2305843009299856596/Vendors/1265988377?components=402',
+  url: 'https://www.bungie.net/Platform/Destiny2/' + memType + '/Profile/' + memID + '/Character/' + charID + '/Vendors/' + vendorHash + '?components=402',
   headers: {
     'X-API-Key': "f966c6ece9324106b01d501a6d932ff6",
     'Authorization': 'Bearer ' + access_token,
