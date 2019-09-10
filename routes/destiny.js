@@ -51,6 +51,6 @@ request.get({
     var itemHashes = jp.query(vendorList, '$.Response.sales.data[?(@)].itemHash');
     console.log('These are the item hashes' + itemHashes);
     console.log('Checking 3rd element' + itemHashes[3]);
-    console.log('Checking if mark is for sale ' + itemHashes.includes('574137193'));
+    console.log('Checking if mark is for sale ' + itemHashes.includes(574137193));
   });
 }
