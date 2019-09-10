@@ -1,4 +1,5 @@
-const request = require('request')
+const request = require('request');
+const jp = require('jsonpath');
 
 var access_token;
 
@@ -46,6 +47,9 @@ request.get({
   },
   }, function(err, resp, body){
     console.log('Printing vendor body.' + body);
-
+    var vendorList = JSON.parse(body);
+    var itemHashes = jp.query(vendorList, '$.Response.sales.data[?(@)].itemHash');
+    consoe.log(itemHashes);
+    console.log('Checking if mark is for sale ' + itemHashes.includes('574137193'));
   });
 }
