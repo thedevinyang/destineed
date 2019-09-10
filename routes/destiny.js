@@ -1,4 +1,6 @@
-const request = require('request')
+const request = require('request');
+const cron = require('node-cron');
+const jp = require('jsonpath');
 
 var access_token;
 
@@ -25,27 +27,39 @@ request.post({
     access_token =  JSON.parse(body)['access_token'];
     console.log('Access token is : ' + access_token);
     //console.log(body + " \nstatus code: " + resp.statusCode + "\ncookie: " + resp.headers['set-cookie']);
-    getVendors();
+    getItemHashes();
     res.redirect("/");
   });
 }
 
-function getVendors(req, res){
+function getItemHashes(req, res){
   const charID = 2305843009299856596;
   const memID = 4611686018470735882;
   const memType = 4;
   const vendorHash = 1265988377;
+  var itemHashes;
+  var vendorList;
 
-request.get({
-  url: 'https://www.bungie.net/Platform/Destiny2/' + memType + '/Profile/' + memID + '/Character/' + charID + '/Vendors/' + vendorHash + '?components=402',
-  headers: {
-    'X-API-Key': "f966c6ece9324106b01d501a6d932ff6",
-    'Authorization': 'Bearer ' + access_token,
-    'Host': 'www.bungie.net',
-    'Connection': 'keep-alive'
-  },
-  }, function(err, resp, body){
-    console.log('Printing vendor body.' + body);
+  request.get({
+    url: 'https://www.bungie.net/Platform/Destiny2/' + memType + '/Profile/' + memID + '/Character/' + charID + '/Vendors/' + vendorHash + '?components=402',
+    headers: {
+      'X-API-Key': "f966c6ece9324106b01d501a6d932ff6",
+      'Authorization': 'Bearer ' + access_token,
+      'Host': 'www.bungie.net',
+      'Connection': 'keep-alive'
+    },
+    }, function(err, resp, body){
+      console.log('Printing vendor body.' + body);
+      vendorList = JSON.parse(body);
+      itemHashes = jp.query(vendorList, '$.Response.sales.data[?(@)].itemHash');
+      console.log('These are the item hashes' + itemHashes);
+      return itemHashes;
 
-  });
+    });
+
+}
+
+exports.containsWep = function(req, res){
+  var thisWeeksItems = getItemHashes();
+  return thisWeeksItems.includes(1128225405);
 }
