@@ -30,7 +30,7 @@ request.post({
   });
 }
 
-exports.getVendors = function(req, res) {
+function getVendors(req, res){
   const charID = 2305843009299856596;
   const memID = 4611686018470735882;
   const memType = 4;
